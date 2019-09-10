@@ -22,11 +22,11 @@ if( !preg_match('/^[\w_\-]+$/', $username) ){
 $full_path = sprintf("/home/noahpaige/users/%s/%s", $username, $filename);
 
 if( move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $full_path) ){
-    print "upload success!";
-	// header("Location: upload_success.html");
+    print "Upload Success!";
+	header("Location: userstart.php");
 	exit;
 }else{
-    print "upload failure";
+    print "Upload Failure";
 	// header("Location: upload_failure.html");
 	exit;
 }
