@@ -16,3 +16,11 @@ body {
     border-style: double;
     color: navy;
 }
+#filesbox{
+    height: 150px;
+    width: 50%;
+    border: 2px;
+    border-style: double;
+    display: inline-block;
+    overflow: scroll;
+}

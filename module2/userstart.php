@@ -18,18 +18,20 @@
     <!-- List Files in UserDir -->
     </div>
 
+<div id="filesbox">
     <ul>
 
     <?php 
         $username = $_SESSION["username"];
         $directory = (string) sprintf('/home/noahpaige/users/%s', $username); 
         // print $directory; 
-        $filelist = scandir($directory); 
+        // $filelist = scandir($directory); 
         foreach (scandir($directory) as $fl) {
-            echo "<li>$fl";
+            print "<li>$fl";
         }
     ?> 
     </ul>
+    </div>
 
     <!-- Form to View File -->
     <form name = "view" action = "ViewFile.php" method="GET">

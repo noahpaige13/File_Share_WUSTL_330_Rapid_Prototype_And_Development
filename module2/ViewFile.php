@@ -1,3 +1,15 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>View File</title>
+</head>
+<body>
+	
+</body>
+
+
 <?php 
 session_start();
 $filename = $_GET['fname'];
@@ -37,6 +49,7 @@ readfile($full_path);
 ?>
 
 
-<!-- <a href = "http://ec2-18-223-29-43.us-east-2.compute.amazonaws.com/~noahpaige/module2/FL19-Module2-Group-458011/userstart.php"> Return to Homepage </a> -->
-
+<br><br>
+<a href = "http://ec2-18-223-29-43.us-east-2.compute.amazonaws.com/~noahpaige/module2/FL19-Module2-Group-458011/userstart.php"> Return to Homepage </a>
+</html>
 
