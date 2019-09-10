@@ -4,6 +4,7 @@ session_start();
 // Get the filename and make sure it is valid
 $filename = basename($_FILES['uploadedfile']['name']);
 print $filename;
+
 if( !preg_match('/^[\w_\.\-]+$/', $filename) ){
 	echo "Invalid filename";
 	exit;
@@ -28,4 +29,9 @@ if( move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $full_path) ){
 	exit;
 }
 
+
+// List Files in UserDir
+// $directory = sprintf('/home/noahpaige/users/%s', $username);
+// $filelist = scandir ( string $directory [, int $sorting_order = SCANDIR_SORT_ASCENDING [, resource $context ]] ) : array;
+// print $filelist
 ?>

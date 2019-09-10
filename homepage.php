@@ -21,10 +21,16 @@ if (isset($_GET["username"])){
 }
 if ($userexist == 0){
     header("Location: userpage.html");
-}
+    // List Files in UserDir
+    // $directory = sprintf('/home/noahpaige/users/%s', $username);
+    // $filelist = scandir($directory);
+    // print sprintf('/home/noahpaige/users/%s', $username);
+    // print $filelist;
+    // scandir ( string $directory [ ,int $sorting_order = SCANDIR_SORT_ASCENDING [, resource $context ]] ) : array;  
+} 
 else{
     print "No user found!";
 }
 
-#CHECK IF USER IN user.txt
+
 ?>
