@@ -1,32 +1,30 @@
 <?php
-#session_start();
-$userexist = "no";
+$userexist = -1;
 $username = (string)$_GET["username"];
-#echo $username;
 if (isset($_GET["username"])){
 
-    #echo $username + "\n";
-    $file = fopen("users.txt","r");
+    $file = fopen("/home/noahpaige/secret/users.txt","r");
 
     while(!feof($file)){
-        $u = (string)fgets($file);
-        #echo $u;
-        #echo "\n";
-        #echo "</ul>\n";
-        if ($username == $u){
-            $userexist = "yes";
-            header("Location: userpage.php");
-            exit;
+        $current_user_line = (string)fgets($file);
+
+        $current_user_line = preg_replace('/\s+/', '', $current_user_line);
+        // echo strcmp($current_user_line, $username);
+        $userexist = strcmp($username,$current_user_line);
+        
+        print $userexist;
+        if ($userexist == 0){
+            break;
         }
     }
     fclose($file);
 }
-if ($userexist == "no"){
-    #echo "Not Valid Username. Try Again";
+if ($userexist == 0){
+    header("Location: userpage.html");
 }
-
-
-#echo htmlentities($username);
+else{
+    print "No user found!";
+}
 
 #CHECK IF USER IN user.txt
 ?>
