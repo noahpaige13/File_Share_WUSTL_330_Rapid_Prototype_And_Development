@@ -1,6 +1,5 @@
-<?php
+<?php 
 session_start();
-
 $filename = $_GET['fname'];
 // echo $filename;
 
@@ -31,9 +30,13 @@ $mime = $finfo->file($full_path);
 
 header("Content-Type: ".$mime);
 if (!file_exists ( $full_path)){
-    echo "Invalid filename";
+    echo "File Does Not Exist";
 	exit;
 }
 readfile($full_path);
-
 ?>
+
+
+<!-- <a href = "http://ec2-18-223-29-43.us-east-2.compute.amazonaws.com/~noahpaige/module2/FL19-Module2-Group-458011/userstart.php"> Return to Homepage </a> -->
+
+

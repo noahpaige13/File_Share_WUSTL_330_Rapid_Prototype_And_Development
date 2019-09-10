@@ -25,8 +25,9 @@
         $directory = (string) sprintf('/home/noahpaige/users/%s', $username); 
         // print $directory; 
         $filelist = scandir($directory); 
-        foreach (scandir($directory) as $fl);
-        echo "<li>$fl.";
+        foreach (scandir($directory) as $fl) {
+            echo "<li>$fl";
+        }
     ?> 
     </ul>
 
