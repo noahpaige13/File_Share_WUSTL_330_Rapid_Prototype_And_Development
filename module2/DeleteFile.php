@@ -23,6 +23,7 @@ $full_path = sprintf("/home/noahpaige/users/%s/%s", $username, $filename2);
 // Finally, set the Content-Type header to the MIME type of the file, and delete the file.
 header("Content-Type: ".$mime);
 unlink($full_path);
+echo "Deletion Success!"
 
 
 

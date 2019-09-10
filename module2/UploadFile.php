@@ -4,7 +4,7 @@ session_start();
 
 // Get the filename and make sure it is valid
 $filename = basename($_FILES['uploadedfile']['name']);
-print $filename;
+// print $filename;
 
 if( !preg_match('/^[\w_\.\-]+$/', $filename) ){
 	echo "Invalid filename";
