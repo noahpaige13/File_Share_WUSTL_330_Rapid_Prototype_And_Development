@@ -1,6 +1,11 @@
-<?php
+<?php 
+session_start();
+
 $userexist = -1;
 $username = (string)$_GET["username"];
+
+$_SESSION["username"] = $username;
+
 if (isset($_GET["username"])){
 
     $file = fopen("/home/noahpaige/secret/users.txt","r");
@@ -20,7 +25,7 @@ if (isset($_GET["username"])){
     fclose($file);
 }
 if ($userexist == 0){
-    header("Location: userpage.html");
+    header("Location: userstart.php");
     // List Files in UserDir
     // $directory = sprintf('/home/noahpaige/users/%s', $username);
     // $filelist = scandir($directory);
