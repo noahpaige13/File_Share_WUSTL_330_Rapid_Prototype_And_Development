@@ -15,6 +15,7 @@
 <?php
 session_start();
 
+
 // Get the filename and make sure it is valid
 $filename = basename($_FILES['uploadedfile']['name']);
 $username = $_SESSION['username'];
@@ -46,4 +47,4 @@ if( !preg_match('/^[\w_\.\-]+$/', $filename) ){
 
 <br><br>
 <a href = "http://ec2-18-223-29-43.us-east-2.compute.amazonaws.com/~noahpaige/module2/FL19-Module2-Group-458011/userstart.php"> Return to User Home </a>
-</html>
+</html> 
