@@ -1,7 +1,23 @@
-<?php
-session_start();
-$newuser = (string)$_GET["newuser"];
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
 
+
+
+<?php
+
+session_start();
+
+$userexist = -1;
+$newuser = (string)$_GET["newuser"];
 $_SESSION["newuser"] = $newuser;
 
 if (isset($_GET["newuser"])){
@@ -13,7 +29,14 @@ if (isset($_GET["newuser"])){
         $userexist = strcmp($username,$current_user_line);
         
         if ($userexist == 0){
-            echo "User Already Exists"
+            echo "User Already Exists";
+            ?>
+            <br><br>
+            <a href = "http://ec2-18-223-29-43.us-east-2.compute.amazonaws.com/~noahpaige/module2/FL19-Module2-Group-458011/FileHomePage.html"> Return to Homepage </a>
+
+
+
+<?php
             exit;
         }   
     }
@@ -25,3 +48,9 @@ if (isset($_GET["newuser"])){
 
 
 ?>
+<br><br>
+ <a href = "http://ec2-18-223-29-43.us-east-2.compute.amazonaws.com/~noahpaige/module2/FL19-Module2-Group-458011/FileHomePage.html"> Return to Homepage </a>
+
+
+
+</html>
