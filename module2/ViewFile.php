@@ -1,3 +1,5 @@
+<!DOCTYPE HTML>
+
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -50,6 +52,6 @@ readfile($full_path);
 
 
 <br><br>
-<a href = "http://ec2-18-223-29-43.us-east-2.compute.amazonaws.com/~noahpaige/module2/FL19-Module2-Group-458011/userstart.php"> Return to Homepage </a>
+<a href = "http://ec2-18-223-29-43.us-east-2.compute.amazonaws.com/~noahpaige/module2/FL19-Module2-Group-458011/userstart.php"> Return to User Home </a>
 </html>
 

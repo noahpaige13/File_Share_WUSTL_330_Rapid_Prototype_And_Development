@@ -1,3 +1,15 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
 <?php 
 session_start();
 
@@ -17,7 +29,6 @@ if (isset($_GET["username"])){
         // echo strcmp($current_user_line, $username);
         $userexist = strcmp($username,$current_user_line);
         
-        print $userexist;
         if ($userexist == 0){
             break;
         }
@@ -39,3 +50,6 @@ else{
 
 
 ?>
+<a href = "http://ec2-18-223-29-43.us-east-2.compute.amazonaws.com/~noahpaige/module2/FL19-Module2-Group-458011/userstart.php"> Return to Homepage </a>
+
+</html>
