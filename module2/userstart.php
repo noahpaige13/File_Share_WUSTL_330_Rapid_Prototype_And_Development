@@ -16,7 +16,7 @@
     <div>
 
     <p><u><b>Files Uploaded </b></u> <br></p>
-    <!-- List Files in UserDir -->
+    
 
     </div>
 
@@ -26,12 +26,14 @@
     <?php 
     session_start();
         $skips = (int)0;
-        $username = $_SESSION["username"];
-        // print $username;
+        $username = (string)$_SESSION["username"];
+        // print $username; (Sanity Check)
         $directory = (string) sprintf('/home/noahpaige/users/%s', $username); 
 
-        // print $directory; 
-        // $filelist = scandir($directory); 
+        // print $directory; (Sanity Check)
+
+        
+        // List Files in UserDir
         foreach (scandir($directory) as $fl) {
             $skips = $skips + 1;
             if ($skips >2){

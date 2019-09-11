@@ -11,17 +11,20 @@
 </body>
 
 <?php 
+// Check Errors
 session_start();
 session_regenerate_id(true); 
 ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
 error_reporting(E_ALL);
 
-$userexist = -1;
+
+$userexist = (int)-1;
 $username = (string)$_GET["username"];
 
 $_SESSION["username"] = $username;
 
+// If username isn't null find user directory and go to userpage
 if (isset($_GET["username"])){
 
     $file = fopen("/home/noahpaige/secret/users.txt","r");
@@ -30,7 +33,7 @@ if (isset($_GET["username"])){
         $current_user_line = (string)fgets($file);
 
         $current_user_line = preg_replace('/\s+/', '', $current_user_line);
-        // echo strcmp($current_user_line, $username);
+        
         $userexist = strcmp($username,$current_user_line);
         
         if ($userexist == 0){
@@ -41,12 +44,7 @@ if (isset($_GET["username"])){
 }
 if ($userexist == 0){
     header("Location: userstart.php");
-    // List Files in UserDir
-    // $directory = sprintf('/home/noahpaige/users/%s', $username);
-    // $filelist = scandir($directory);
-    // print sprintf('/home/noahpaige/users/%s', $username);
-    // print $filelist;
-    // scandir ( string $directory [ ,int $sorting_order = SCANDIR_SORT_ASCENDING [, resource $context ]] ) : array;  
+     
 } 
 else{
     print "No user found!";

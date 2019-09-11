@@ -17,29 +17,27 @@ session_start();
 
 
 // Get the filename and make sure it is valid
-$filename = basename($_FILES['uploadedfile']['name']);
-$username = $_SESSION['username'];
-$full_path = sprintf("/home/noahpaige/users/%s/%s", $username, $filename);
+$filename = (string)basename($_FILES['uploadedfile']['name']);
+$username = (string)$_SESSION['username'];
+$full_path = (string)sprintf("/home/noahpaige/users/%s/%s", $username, $filename);
 
-// print $filename;
+// print $filename; (Sanity Check)
 
 if( !preg_match('/^[\w_\.\-]+$/', $filename) ){
-	echo "Invalid filename";
-	// exit;
+	echo htmlentities("Invalid filename");
 }  elseif( !preg_match('/^[\w_\-]+$/', $username) ){
 	// Get the username and make sure it is valid
-	echo "Invalid username";
-	// exit;
+
+	echo htmlentities("Invalid username");
+
 }  else{
 
 	if( move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $full_path) ){
-		// header("Location: userstart.php");
-		print "Upload Success!";
-		// exit;
+		print htmlentities("Upload Success!");
+
 	}else{
-    	print "Upload Failure";
-		// header("Location: upload_failure.html");
-		// exit;
+    	print htmlentities("Upload Failure");
+
 	}
 }
 

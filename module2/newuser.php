@@ -13,16 +13,18 @@
 
 
 <?php
-
+// Check Errors
 session_start();
 ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
 error_reporting(E_ALL);
 
-$userexist = -1;
+
+$userexist = (int)-1;
 $newuser = (string)$_GET["newuser"];
 $_SESSION["newuser"] = $newuser;
 
+// If newuser isn't null add new user to uers.txt and create new user directory
 if (isset($_GET["newuser"])){
     $file = fopen("/home/noahpaige/secret/users.txt","r");
     while(!feof($file)){
@@ -31,8 +33,9 @@ if (isset($_GET["newuser"])){
         $current_user_line = preg_replace('/\s+/', '', $current_user_line);
         $userexist = strcmp($newuser,$current_user_line);
         
+        // Check edge case to make sure user doesn't already exist
         if ($userexist == 0){
-            echo "User Already Exists";
+            echo htmlentities("User Already Exists");
           
             ?>
             <br><br>
@@ -45,8 +48,8 @@ if (isset($_GET["newuser"])){
         
     }
 
-    // file_put_contents("/home/noahpaige/secret/users.txt",$newuser);
     $handle = fopen("/home/noahpaige/secret/users.txt", 'a');
+    fwrite($handle, "\n");
     fwrite($handle, $newuser);
     mkdir("/home/noahpaige/users/$newuser");
     echo "User Created: $newuser";

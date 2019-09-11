@@ -3,13 +3,13 @@
 
 <?php 
 session_start();
-$filename = $_GET['fname'];
-// echo $filename;
+$filename = (string)$_GET['fname'];
+// echo $filename; (Sanity Check)
 
 // We need to make sure that the filename is in a valid format; if it's not, display an error and leave the script.
 // To perform the check, we will use a regular expression.
 if( !preg_match('/^[\w_\.\-]+$/', $filename) ){
-	echo "Invalid filename";
+	echo htmlentities("Invalid filename");
 	exit;
 }
 
@@ -18,12 +18,13 @@ if( !preg_match('/^[\w_\.\-]+$/', $filename) ){
 // since we will be concatenating the string to load files from the filesystem.
 $username = $_SESSION['username'];
 if( !preg_match('/^[\w_\-]+$/', $username) ){
-	echo "Invalid username";
+	echo htmlentities("Invalid username");
 	exit;
 }
 
-$full_path = sprintf("/home/noahpaige/users/%s/%s", $username, $filename);
-// echo $full_path;
+$full_path = (string)sprintf("/home/noahpaige/users/%s/%s", $username, $filename);
+
+// echo $full_path; (Sanity Check)
 // Now we need to get the MIME type (e.g., image/jpeg).  PHP provides a neat little interface to do this called finfo.
 $finfo = new finfo(FILEINFO_MIME_TYPE);
 $mime = $finfo->file($full_path);
@@ -33,7 +34,7 @@ $mime = $finfo->file($full_path);
 
 header("Content-Type: ".$mime);
 if (!file_exists ( $full_path)){
-    echo "File Does Not Exist";
+    echo htmlentities("File Does Not Exist");
 	exit;
 }
 readfile($full_path);
