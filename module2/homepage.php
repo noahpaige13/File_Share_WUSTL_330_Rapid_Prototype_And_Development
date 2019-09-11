@@ -47,7 +47,7 @@ if ($userexist == 0){
      
 } 
 else{
-    print "No user found!";
+    print htmlentities("No user found!");
 }
 
 

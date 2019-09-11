@@ -52,7 +52,7 @@ if (isset($_GET["newuser"])){
     fwrite($handle, "\n");
     fwrite($handle, $newuser);
     mkdir("/home/noahpaige/users/$newuser");
-    echo "User Created: $newuser";
+    echo htmlentities(sprintf("User Created: %s", $newuser));
     file_exists("/home/noahpaige/users/$newuser");
 }
 

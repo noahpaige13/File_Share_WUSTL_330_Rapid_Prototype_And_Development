@@ -31,12 +31,14 @@ $mime = $finfo->file($full_path);
 
 // Finally, set the Content-Type header to the MIME type of the file, and display the file.
 
-
-header("Content-Type: ".$mime);
+ob_clean();
+$contentType = sprintf("Content-Type: %s", $mime);
+header($contentType);
 if (!file_exists ( $full_path)){
     echo htmlentities("File Does Not Exist");
 	exit;
 }
+
 readfile($full_path);
 ?>
 
