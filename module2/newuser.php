@@ -40,12 +40,14 @@ if (isset($_GET["newuser"])){
             
 
 <?php
-            break;
+            exit;
         }
         
     }
 
     // file_put_contents("/home/noahpaige/secret/users.txt",$newuser);
+    $handle = fopen("/home/noahpaige/secret/users.txt", 'a');
+    fwrite($handle, $newuser);
     mkdir("/home/noahpaige/users/$newuser");
     echo "User Created: $newuser";
     file_exists("/home/noahpaige/users/$newuser");
