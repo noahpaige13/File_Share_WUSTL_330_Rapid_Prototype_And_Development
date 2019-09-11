@@ -42,7 +42,7 @@ if (isset($_GET["deleteuser"])){
             // print $deleteuser;  (Sanity Check)
 
             rmdir("/home/noahpaige/users/$deleteuser");
-            echo "User Deleted: $deleteuser";
+            echo htmlentities(sprintf("User Deleted: %s",$deleteuser));
             ?>
 
             
