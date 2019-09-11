@@ -69,7 +69,6 @@
         </p>
     </form>
 
-    File Storage Uploaded: 
     <?php
 
     ?>
