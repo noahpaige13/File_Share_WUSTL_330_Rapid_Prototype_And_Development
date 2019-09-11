@@ -26,7 +26,6 @@
     <?php 
     session_start();
         $skips = (int)0;
-        $size = (float)0;
         $username = (string)$_SESSION["username"];
         // print $username; (Sanity Check)
         $directory = (string) sprintf('/home/noahpaige/users/%s', $username); 
@@ -38,9 +37,6 @@
         foreach (scandir($directory) as $fl) {
             $skips = $skips + 1;
             if ($skips >2){
-                // $ s = $directory .= "/";
-                // echo filesize($s .= $fl);
-                // $size = $size + (float)filesize($directory .= $fl);
                 print "<li>$fl";
             }
         }
@@ -76,7 +72,6 @@
     File Storage Uploaded: 
     <?php
 
-    echo $size;
     ?>
     <div id = "logout">
         <form name = "logout" action = "logout.php" method = "GET">
