@@ -24,3 +24,9 @@ body {
     display: inline-block;
     overflow: scroll;
 }
+
+#logout{
+    color: black;
+    text-align: right;
+    
+}

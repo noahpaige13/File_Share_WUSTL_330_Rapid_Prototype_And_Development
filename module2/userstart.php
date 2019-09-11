@@ -15,20 +15,28 @@
 <body>
     <div>
 
-    <p><u><b>Files Uploaded: </b></u> <br></p>
+    <p><u><b>Files Uploaded </b></u> <br></p>
     <!-- List Files in UserDir -->
+
     </div>
 
 <div id="filesbox">
     <ul>
 
     <?php 
+    session_start();
+        $skips = (int)0;
         $username = $_SESSION["username"];
+        // print $username;
         $directory = (string) sprintf('/home/noahpaige/users/%s', $username); 
+
         // print $directory; 
         // $filelist = scandir($directory); 
         foreach (scandir($directory) as $fl) {
-            print "<li>$fl";
+            $skips = $skips + 1;
+            if ($skips >2){
+                print "<li>$fl";
+            }
         }
     ?> 
     </ul>
@@ -58,6 +66,12 @@
             <input type="submit" value="Upload File" />
         </p>
     </form>
+
+    <div id = "logout">
+        <form name = "logout" action = "logout.php" method = "GET">
+            <input type = "submit" value = "Log Out" />
+        </form>
+    </div>
     
 </body>
 </html>
